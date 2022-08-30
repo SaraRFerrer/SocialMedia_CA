@@ -14,5 +14,8 @@
   "devDependencies": {
     "live": "^0.1.25-beta.0",
     "sass": "^1.54.6"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.0"
   }
 }
