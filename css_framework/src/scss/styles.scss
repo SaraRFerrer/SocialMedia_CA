@@ -1,2 +1,32 @@
+
+@import "variables.scss"; 
+
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
+main {
+    background-color: $primary;
+}
+
+.col-md-8 {
+    background-color: $gray-900;
+}
+
+.img-radius {
+    width: 100%;
+}
+
+
+.btn-outline-primary {
+    color: $black;
+}
+   
+
+.navbar-dark {
+    background-color: $gray-300;
+}
+
+
+
+.text-muted {
+    color: $gray-600;
+}
