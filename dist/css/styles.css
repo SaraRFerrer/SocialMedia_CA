@@ -10790,4 +10790,8 @@ main {
   border: rgb(248, 247, 247);
 }
 
+.error {
+  display: none;
+}
+
 /*# sourceMappingURL=styles.css.map */
