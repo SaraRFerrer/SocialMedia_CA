@@ -24,5 +24,5 @@ export function validateSignup (event) {
     } else {
         password_error.style.display = "block";
     }
-    loginUser(event);
+    loginUser();
 }

@@ -43,7 +43,7 @@ export async function registerUser (url, data) {
 
     // calling API to get token authorisation and saving them in local storage
 
-    export async function loginUser (url, data) {
+    export async function loginUser () {
         
         const postData = {
             method: 'POST',
@@ -59,7 +59,7 @@ export async function registerUser (url, data) {
           };
 
           try {
-            const response = await fetch(url, postData);
+            const response = await fetch(`${BASE_URL_API}/api/v1/social/auth/login`, postData);
             const json = await response.json();
             const accessToken = json.accessToken;
             localStorage.setItem("accessToken", accessToken);
@@ -71,12 +71,159 @@ export async function registerUser (url, data) {
           } catch (error) {
             console.log(error);
           }
-         
-
-          loginUser(`${BASE_URL_API}/api/v1/social/auth/login`, postData);    
+            
     } 
 
     loginForm.addEventListener ("submit", validateSignup);
+
+     /**
+    * GET request so user can view all posts from API 
+    * @param {string} accessToken
+    * @returns
+    */
+
+      export async function viewPosts (accessToken) {
+        const postData = {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        };
+  
+        try {
+          const response = await fetch (`${BASE_URL_API}//api/v1/social/posts?_author=true&_comments=true&_reactions=true`,
+          postData );
+  
+          const json = await response.json();
+          return json;
+  
+        } catch (error) {
+          console.log(error);
+        }
+      }
+  
+      export async function writePost ( accessToken, text, mediaUrl) {
+        const postData = {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+          body: JSON.stringify({
+            title: " ",
+            body: text,
+            tags: [" "],
+            media: mediaUrl,
+          }),
+        };
+  
+        try {
+          const response = await fetch(`${BASE_URL}/api/v1/social/posts/`, postData);
+          const json = await response.json();
+          console.log(json);
+          location.reload();
+  
+        } catch (error) {
+          console.log(error);
+        }
+  
+      }
+  
+      /**
+       * Making a DELETE request
+       * Removing a post from the API
+       */
+  
+      export async function deletePost(accessToken, id) {
+        const postData = {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+            Authorization: `Bearer ${accessToken}`,
+          },
+  
+         };
+  
+         try {
+          const response = await fetch (`${BASE_URL_API}//api/v1/social/posts/${id}`,
+          postData);
+  
+          const json = await response.json();
+          console.log(json);
+          location.reload();
+  
+         } catch(error) {
+          console.log(error);
+  
+         }
+      }
+
+      /**
+       * Request to edit exixsting post
+       * 
+       */
+
+      export async function updatePost(accessToken, editContent, editMedia, id) {
+        const postData = {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+            Authorization: `Bearer ${accessToken}`,
+          },
+
+          body: JSON.stringify({
+            title: " ",
+            body: `${editContent}`,
+            tags: [" "],
+            media: `${editMedia}`,
+          }),
+         };
+
+         try {
+          const response = await fetch (`${BASE_URL_API}//api/v1/social/posts/${id}`,
+          postData);
+  
+          const json = await response.json();
+          console.log(json);
+          location.reload();
+  
+         } catch(error) {
+          console.log(error);
+  
+         }
+        
+      }
+
+      /**
+       * Fetching sigle post by ID
+       */
+
+      export async function postById (accessToken, id) {
+        const postData = {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json; charset=UTF-8",
+            Authorization: `Bearer ${accessToken}`,
+          },
+
+      };
+
+      try {
+        const response = await fetch (`${BASE_URL_API}//api/v1/social/posts/${id}?_author=true&_comments=true&_reactions=true`,
+        postData);
+
+        const json = await response.json();
+        console.log(json);
+        location.reload();
+
+       } catch(error) {
+        console.log(error);
+
+       }
+
+    }
+
+
+
 
     
 
