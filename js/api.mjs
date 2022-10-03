@@ -3,7 +3,7 @@ import {registrationSuccess} from "./validation.mjs";
 import { validateSignup } from "./validationSignup.mjs";
 
 
-const BASE_URL_API = "https://nf-api.onrender.com";
+ export const BASE_URL_API = "https://nf-api.onrender.com";
 
 const form = document.querySelector("form")
 const username = document.querySelector("#username");
