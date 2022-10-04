@@ -1,7 +1,8 @@
-import { saved } from "../components/stored.mjs";
+import { saved } from "./constants/stored.mjs";
 
 export function headers(){
     const accessToken = saved("accessToken");
+   
     
     return {
             "Content-Type": "application/json",
@@ -10,11 +11,13 @@ export function headers(){
 }
 
 
-export async function fetchToken(url, options = {}) {
+export async function fetchToken (url, options) {
     return fetch(url, {
         ...options,
         headers: headers()
     })
+    console.log(accessToken);
+    
 }
 
 

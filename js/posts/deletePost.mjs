@@ -16,7 +16,6 @@ export function removePost(id); {
 
     const response = await fetchToken (deleteUrl, {
         method,
-        body: JSON.stringify(postData)
     })
 
     return await response.json ();

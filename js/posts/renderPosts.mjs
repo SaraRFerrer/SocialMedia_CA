@@ -1,34 +1,40 @@
-export async function renderPosts ();
+//export async function renderPosts () {}
 
-export async function render(id){};
+//export async function render(id){}
 
 
-import { BASE_URL_API } from "../api.mjs";
+
 import { fetchToken } from "../fetchToken.mjs";
+import { API_PATH_URL } from "../constants/url.mjs";
+
 
 const action ="/posts";
 
 
-export function renderPosts(); {
-    const renderUrl = `${BASE_URL_API}${action}`;
+export async function renderPosts() {
+    const renderUrl = `${API_PATH_URL}${action}`;
     
-
-    const response = await fetchToken (renderUrl)
+    const response = await fetchToken(renderUrl)
 
     return await response.json ();
 
 }
 
-export function render(id); {
+renderPosts()
+
+
+export async function render(id) {
     if (!id){
         throw new Error ("Get required id");
     }
 
-    const renderUrl = `${BASE_URL_API}${action}${id}`;
+    const allPostsUrl = `${API_PATH_URL}${action}/${id}`;
     
 
-    const response = await fetchToken (renderUrl)
+    const response = await fetchToken (allPostsUrl)
 
     return await response.json ();
 
 }
+
+;
