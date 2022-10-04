@@ -16,7 +16,6 @@ export async function fetchToken (url, options) {
         ...options,
         headers: headers()
     })
-    console.log(accessToken);
     
 }
 

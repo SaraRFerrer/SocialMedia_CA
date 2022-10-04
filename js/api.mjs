@@ -1,6 +1,7 @@
 
 import {registrationSuccess} from "./validation.mjs";
 import { validateSignup } from "./validationSignup.mjs";
+import * as stored from "./constants/stored.mjs";
 
 
 const BASE_URL_API = "https://nf-api.onrender.com";
@@ -61,8 +62,8 @@ export async function registerUser (url, data) {
           try {
             const response = await fetch(`${BASE_URL_API}/api/v1/social/auth/login`, postData);
             const json = await response.json();
-            const accessToken = json.accessToken;
-            localStorage.setItem("accessToken", accessToken);
+            stored.saved("accessToken", response.accessToken);
+            stored.saved("profile", response);
             console.log(json);
            // window.location.assign("profile.html");
 
