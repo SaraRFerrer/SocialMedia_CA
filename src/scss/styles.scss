@@ -44,5 +44,23 @@ main {
 }
 
 a {
-    color: $black;
+    color: $white;
+    text-decoration: none;
+}
+
+#posts-container {
+    background-color: $gray-900;
+}
+
+#posts-container img {
+    width: 100%;
+    max-height: 500px;
+    max-width: 700px;
+    margin: auto;
+    display: block;
+    align-items: center;
+}
+
+#posts-container a {
+    text-align: center;
 }

@@ -23,7 +23,7 @@ export async function renderPosts() {
             <div><h1>${json[i].title}</h1></div>
             <div><img src ="${json[i].media}"></img></div>
             <div><p>${json[i].body}</p></div>
-            <div><p>${json.created}</p></div>`
+            <div><p>${json[i].created}</p></div>`
         
          }
 

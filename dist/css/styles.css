@@ -10795,7 +10795,25 @@ main {
 }
 
 a {
-  color: #000;
+  color: rgb(248, 247, 247);
+  text-decoration: none;
+}
+
+#posts-container {
+  background-color: rgb(60, 59, 59);
+}
+
+#posts-container img {
+  width: 100%;
+  max-height: 500px;
+  max-width: 700px;
+  margin: auto;
+  display: block;
+  align-items: center;
+}
+
+#posts-container a {
+  text-align: center;
 }
 
 /*# sourceMappingURL=styles.css.map */
