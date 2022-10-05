@@ -34,6 +34,7 @@ export async function registerUser (url, data) {
         console.log(response);
         const json = await response.json();
         console.log(json);
+        window.location.assign("login.html");
         return json;
       } catch (error) {
         console.log(error);
@@ -62,10 +63,10 @@ export async function registerUser (url, data) {
           try {
             const response = await fetch(`${BASE_URL_API}/api/v1/social/auth/login`, postData);
             const json = await response.json();
-            stored.saved("accessToken", response.accessToken);
-            stored.saved("profile", response);
+            stored.saved("accessToken", json.accessToken);
+            stored.saved("profile", json);
             console.log(json);
-           // window.location.assign("profile.html");
+            window.location.assign("index.html");
 
            
 
@@ -74,8 +75,10 @@ export async function registerUser (url, data) {
           } catch (error) {
             console.log(error);
           }
+           
             
     } 
+    
 
     loginForm.addEventListener ("submit", validateSignup);
 

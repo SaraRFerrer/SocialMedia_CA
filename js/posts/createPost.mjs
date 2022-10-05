@@ -1,20 +1,27 @@
 
-import { BASE_URL_API } from "../api.mjs";
+import { API_PATH_URL } from "../constants/url.mjs";
 import { fetchToken } from "../fetchToken.mjs";
 
 const action ="/posts";
-const method = "post"; 
+const method = "post";
 
 
-export function createPost(postData); {
-    const createUrl = BASE_URL_API + action;
-    const accessToken = saved("accessToken");
+
+export async function createPost(postData) {
+    const createUrl = API_PATH_URL + action;
+    
 
     const response = await fetchToken (createUrl, {
         method,
         body: JSON.stringify(postData)
     })
 
-    return await response.json ();
+    const newPost = await response.json()
+    console.log(newPost)
 
 }
+
+createPost ( {
+    title: "this is not working",
+    body: "please work"
+})

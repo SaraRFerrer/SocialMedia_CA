@@ -1,8 +1,10 @@
 export function saved(key, value) {
+    if (value) {
     localStorage.setItem(key, JSON.stringify(value));
+    }
 }
 
-export function accessToken(key) {
+export function load(key) {
     try {
         const value = localStorage.getItem(key);
         return JSON.parse(value);
