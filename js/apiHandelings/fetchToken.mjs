@@ -1,4 +1,4 @@
-import { load } from "./constants/stored.mjs";
+import { load } from "../constants/stored.mjs";
 
 export function headers() {
     const accessToken = load("accessToken")

@@ -1,4 +1,4 @@
-import {registerUser} from "./api.mjs";
+import {registerUser} from "./login_register.mjs";
 import {
     validateUsername,
     emailValidation,

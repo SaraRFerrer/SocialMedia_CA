@@ -10795,12 +10795,14 @@ main {
 }
 
 a {
-  color: rgb(248, 247, 247);
+  color: #000;
   text-decoration: none;
 }
 
 #posts-container {
   background-color: rgb(60, 59, 59);
+  align-items: center;
+  margin: auto;
 }
 
 #posts-container img {

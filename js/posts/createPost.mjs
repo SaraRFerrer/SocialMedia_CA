@@ -1,6 +1,6 @@
 
 import { API_PATH_URL } from "../constants/url.mjs";
-import { fetchToken } from "../fetchToken.mjs";
+import { fetchToken } from "../apiHandelings/fetchToken.mjs";
 
 const action ="/posts";
 const method = "post";
@@ -21,7 +21,5 @@ export async function createPost(postData) {
 
 }
 
-createPost ( {
-    title: "this is not working",
-    body: "please work"
-})
+createPost () 
+  

@@ -1,7 +1,7 @@
 
 import {registrationSuccess} from "./validation.mjs";
 import { validateSignup } from "./validationSignup.mjs";
-import * as stored from "./constants/stored.mjs";
+import * as stored from "../constants/stored.mjs";
 
 
 const BASE_URL_API = "https://nf-api.onrender.com";
