@@ -1,4 +1,11 @@
 import {createPost} from "../posts/createPost.mjs";
+import { load } from "../constants/stored.mjs";
+import { fetchToken } from "../apiHandelings/fetchToken.mjs";
+import { API_PATH_URL } from "../constants/url.mjs";
+
+
+
+
 
 
 export function createListener () {
@@ -14,13 +21,7 @@ export function createListener () {
             createPost(post)
         })
     }
+
+
 }
-
-const path = location.pathname;
-
-if (path === "/profile.html") {
-    createListener()
-} 
-
-
 

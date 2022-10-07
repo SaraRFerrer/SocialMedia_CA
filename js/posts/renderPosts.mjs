@@ -1,5 +1,6 @@
 import { fetchToken } from "../apiHandelings/fetchToken.mjs";
 import { API_PATH_URL } from "../constants/url.mjs";
+import { filterPosts } from "../search_filter/filter.mjs";
 
 const posts = document.querySelector("#posts-container");
 
@@ -8,12 +9,14 @@ const action ="/posts";
 
 export async function renderPosts() {
     const renderUrl = `${API_PATH_URL}${action}`;
+ 
 
     try{
         
     
         const response = await fetchToken(renderUrl)
         const json = await response.json();
+       
 
         console.log(json);
 
@@ -31,9 +34,20 @@ export async function renderPosts() {
         
          }
 
+         const filteredData = await filterPosts(dataPosts);
+         renderPosts(filteredData, posts, false);
+ 
+ 
+         async function filteredRender() {
+             const filteredData = await filterPosts(dataPosts);
+             renderPosts(filteredData, posts, false);
+     }
+
     } catch (error) {
     console.log(error)
     }
+
+    
 
 }
 

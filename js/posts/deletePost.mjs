@@ -20,4 +20,6 @@ export function removePost(id); {
 
     return await response.json ();
 
-}
+};
+
+

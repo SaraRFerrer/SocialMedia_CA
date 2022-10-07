@@ -21,5 +21,5 @@ export async function createPost(postData) {
 
 }
 
-createPost () 
+createPost ();
   

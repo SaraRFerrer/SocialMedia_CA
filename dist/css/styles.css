@@ -10818,4 +10818,9 @@ a {
   text-align: center;
 }
 
+select {
+  padding: 10px;
+  margin-top: 20px;
+}
+
 /*# sourceMappingURL=styles.css.map */

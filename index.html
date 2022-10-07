@@ -27,44 +27,34 @@
                 </li>
               </ul>
               <form class="form-inline my-2 my-md-0">
-                <input class="form-control" type="text" placeholder="Search">
+                <input class="form-control" id="search" type="text" placeholder="Search">
               </form>
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </div>
           </nav>
     </header> 
+<section>
+   
+
+
+    </div>
     <div class="container mt-4 mb-5" id="posts-container">
-        <div class="d-flex justify-content-center row">
-            <div class="col-md-8">
-                <div class="feed p-2">
-                    </div>
-                    <div class="bg-white border mt-2">
-                        <div>
-                            <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
-                                <div class="d-flex flex-row align-items-center feed-text px-2"><img class="rounded-circle" id="avatar" width="45">
-                                    <div class="d-flex flex-column flex-wrap ml-2"><h1 class="font-weight-bold" id="name" ></h1><span class="text-black-50" id="time"></span></div>
-                                </div>
-                                <div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
-                            </div>
-                        </div>
-                        <div class="p-2 px-3"><p id="content"></p></div>
-                        <div class="d-flex justify-content-end socials p-2 py-3"><i class="fa fa-thumbs-up"></i><i class="fa fa-comments-o"></i><i class="fa fa-share"></i></div>
-                    </div>
-                    <div class="bg-white border mt-2">
-                        <div>
-                            <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
-                                <div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
-                            </div>
-                        </div>
-                        <div class="feed-image p-2 px-3"><img class="img-fluid img-responsive" id="media"></div>
-                        <div class="d-flex justify-content-end socials p-2 py-3"><i class="fa fa-thumbs-up"></i><i class="fa fa-comments-o"></i><i class="fa fa-share"></i></div>
-                    </div>
+        <div class="filter">
+            <label for="Filter">Filter</label>
+                    <select name="filter" id="filter">
+                        <option value="Most-Recent">Most Recent</option>
+                        <option value="Oldenst">Oldest</option>
+                        <option value="Most-Populat">Most Popular</option>
+                    </select>
                 </div>
             </div>
         </div>
     </div>
+</section>
 </main>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="/js/posts/renderPosts.mjs"></script>
+    <script type="module" src="/js/search_filter/filter.mjs"></script>
+    <script type="module" src="/js/search_filter/search.mjs"></script>
 </body>
 </html>
