@@ -68,32 +68,17 @@ async function getFeed () {
     console.log(json);
     console.log(posts);
 
-    profileFeed.innerHTML = `<div class="card d-flex align-items-center my-4">
-    <div class="rounded-circle border border-dark mt-2">
-      <img
-        class="rounded-circle post-avatar"
-        src="${avatar}"
-        alt=""
-      />
-    </div>
-    <div class="name ms-2">
-      <h1>${name}</h1>
-    </div>
-    <div class="followers-tab d-flex my-3">
-      <div class="posts mx-3">
-        <h5>Posts</h5>
-        <p>${profiles._count.posts}</p>
-      </div>
-      <div class="followers mx-3">
-        <h5>Followers</h5>
-        <p>${followers}</p>        
-      </div>
-      <div class="following mx-3">
-        <h5>Following</h5>
-        <p>${following}</p>
-      </div>
-    </div>
-  </div>`;
+    profileFeed.innerHTML = `<div class=" container mt-4 mb-5 posts-card d-flex justify-content-center row col-md-8 feed p-2
+    bg-white border mt-2">
+    <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+    <p class="d-flex justify-content-end socials">${json[i].author}</p></div>
+    <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+    <h1 class="d-flex flex-row align-items-center feed-text px-2">${json[i].title}</h1></div>
+    <div class="feed-image p-2 px-3">
+    <img class="img-fluid img-responsive d-flex justify-content-end socials" src ="${json[i].media}"></img></div>
+    <div class="p-2 px-3">
+    <p class="d-flex justify-content-end socials">${json[i].body}</p></div>
+    <div><p>${json[i].created}</p></div>`
 
   
 }
