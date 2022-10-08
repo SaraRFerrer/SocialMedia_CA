@@ -60,11 +60,10 @@ const test = document.querySelector(".test")
 const API = API_PATH_URL + action + name + "?_posts=true&sortOrder=desc";
 
 async function getFeed () {
-    const response = await fetch(url, options);
-    console.log(response);
-    const profiles = await response.json();
-    const { name, avatar, posts } = json;
-    const { followers, following } = profiles._count;
+    const response = await fetchToken(renderUrl)
+    const json = await response.json();
+       
+
     console.log(json);
     console.log(posts);
 
