@@ -2,6 +2,7 @@
 import { API_PATH_URL } from "../constants/url.mjs";
 import { fetchToken } from "../apiHandelings/fetchToken.mjs";
 
+
 const action ="/posts";
 const method = "post";
 
@@ -23,3 +24,4 @@ export async function createPost(postData) {
 
 createPost ();
   
+

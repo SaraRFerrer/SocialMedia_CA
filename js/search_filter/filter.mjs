@@ -23,3 +23,12 @@ switch (filter.value){
     return filtered
 
 }
+
+const filteredData = await filterPosts(dataPosts);
+renderPosts(filteredData, posts, false);
+
+
+async function filteredRender() {
+    const filteredData = await filterPosts(dataPosts);
+    renderPosts(filteredData, posts, false);
+}
