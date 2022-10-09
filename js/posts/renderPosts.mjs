@@ -33,7 +33,8 @@ export async function renderPosts() {
             <img class="img-fluid img-responsive d-flex justify-content-end socials" src ="${json[i].media}"></img></div>
             <div class="p-2 px-3">
             <p class="d-flex justify-content-end socials">${json[i].body}</p></div>
-            <div><p>${json[i].created}</p></div> </a>`
+            <div><p>${json[i].created}</p></div>
+            <div><button>View Post</button></a>`
         
          }
 
@@ -49,19 +50,3 @@ export async function renderPosts() {
 
 renderPosts().then(console.log)
 
-
-export async function render(id) {
-    if (!id){
-        throw new Error ("Get required id");
-    }
-
-    const allPostsUrl = `${API_PATH_URL}${action}/${id}`;
-    
-
-    const response = await fetchToken (allPostsUrl)
-
-    return await response.json ();
-
-}
-
-render().then(console.log)

@@ -1,7 +1,7 @@
-import {updatePost} from "../posts/createPost.mjs";
+import {updatePost} from "../posts/updatePost.mjs";
 
 export async function createListener () {
-    const form = document.querySelector(".createForm");
+    const form = document.querySelector(".updateForm");
     const id = url.searchParams.get("id");
 
     if (form) {
@@ -24,4 +24,10 @@ export async function createListener () {
             updatePost(post)
         })
     }
+}
+
+const path = location.pathname;
+
+if (path === '/update.html') {
+    createListener();
 }

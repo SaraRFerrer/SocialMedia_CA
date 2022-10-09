@@ -6,7 +6,7 @@ const action ="/posts";
 const method = "put"; 
 
 
-export function updatePost(postData); {
+export function updatePost(postData) {
     if (postData.id){
         throw new Error ("Update required id");
     }
