@@ -22,8 +22,7 @@ export async function renderPosts() {
 
 
         for (let i = 0; i < json.length; i++) {
-            const post = json[i];
-            posts.innerHTML += `<a href="index.html?id${post.id}" <div class=" container mt-4 mb-5 posts-card d-flex justify-content-center row col-md-8 feed p-2
+            posts.innerHTML += `<a href="details.html?id${json[i].id}" <div class=" container mt-4 mb-5 posts-card d-flex justify-content-center row col-md-8 feed p-2
             bg-white border mt-2">
             <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
             <p class="d-flex justify-content-end socials">${json[i].author}</p></div>
@@ -48,5 +47,5 @@ export async function renderPosts() {
 
 }
 
-renderPosts().then(console.log)
+renderPosts()
 
