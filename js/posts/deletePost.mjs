@@ -1,25 +1,28 @@
 
-import { BASE_URL_API } from "../api.mjs";
-import { fetchToken } from "../fetchToken.mjs";
+import { API_PATH_URL } from "../constants/url.mjs";
+import { fetchToken } from "../apiHandelings/fetchToken.mjs";
 
 const action ="/posts";
 const method = "delete"; 
 
 
-export function removePost(id); {
+export async function removePost(id) {
     if (!id){
-        throw new Error ("Update required id");
+        throw new Error ("Delete required id");
     }
 
-    const deleteUrl = `${BASE_URL_API}${action}/${id}`;
+    const deleteUrl = `${API_PATH_URL}${action}/${id}`;
     
 
     const response = await fetchToken (deleteUrl, {
         method,
     })
 
-    return await response.json ();
+   const json = response.json ();
+   console.log(json);
 
 };
+
+
 
 

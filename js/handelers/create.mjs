@@ -31,7 +31,7 @@ const postContainer = document.querySelector('#profilePost');
 
 export async function getPosts() {
     const response = await fetch(
-        `${API_PATH_URL}${action}/?sort=created&sortOrder=desc&_author=true&_comments=true&_reactions=true`,
+        `${API_PATH_URL}${action}/?_author=true`,
         {
             method: 'get',
             headers: {
@@ -47,7 +47,7 @@ export async function getPosts() {
     const filterUserData = json.filter(author => author.name === user);
     const userPosts = json;
 
-    userPosts.forEach(userPost => {
+    filterUserData.forEach(userPost => {
         postContainer.innerHTML = `<div class=" container mt-4 mb-5 posts-card d-flex justify-content-center row col-md-8 feed p-2
     bg-white border mt-2">
     <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
@@ -58,7 +58,9 @@ export async function getPosts() {
     <img class="img-fluid img-responsive d-flex justify-content-end socials" src ="${userPost.media}"></img></div>
     <div class="p-2 px-3">
     <p class="d-flex justify-content-end socials">${userPost.body}</p></div>
-    <div><p>${userPost.created}</p></div>`;
+    <div><p>${userPost.created}</p></div>
+    <div><button type="submit" class="btn btn-primary waves-effect waves-light">Update Post</button></div>
+    <div><button type="submit" class="btn btn-primary waves-effect waves-light">Delete Post</button></div>`;
     });
 
     if (!response.ok) {

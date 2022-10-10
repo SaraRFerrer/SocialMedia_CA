@@ -9,10 +9,10 @@ const postContainer = document.querySelector("#details-container");
 const action = "/posts"
 
 
-async function singlePost() {
+export async function singlePost() {
    
 
-    const allPostsUrl = `${API_PATH_URL}${action}/${id}`;
+    const allPostsUrl = "https://nf-api.onrender.com/api/v1/social/posts/" + id;
     
 
     const response = await fetchToken (allPostsUrl)
