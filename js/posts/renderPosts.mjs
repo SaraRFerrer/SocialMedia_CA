@@ -49,3 +49,15 @@ export async function renderPosts() {
 
 renderPosts()
 
+export async function getPost(id) {
+    if(!id) {
+        throw new Error("Request requires ID");
+    }
+
+    const getPostApi = `${API_PATH_URL}${action}/${id}`;
+
+    const response = await fetchToken(getPostApi)
+
+    return await response.json();
+}
+

@@ -3,6 +3,23 @@ import { load } from '../constants/stored.mjs';
 import { fetchToken } from '../apiHandelings/fetchToken.mjs';
 import { API_PATH_URL } from '../constants/url.mjs';
 
+let postModel = [
+    {
+        id: '',
+        author: {
+            name: '',
+            email: '',
+            avatar: '',
+        },
+        title: '',
+        body: '',
+        tags: [],
+        media: '',
+        created: '',
+        updated: '',
+    },
+];
+
 export function createListener() {
     const form = document.querySelector('.createForm');
 
@@ -26,28 +43,23 @@ if (path === '/profile.html') {
 
 const action = '/posts';
 const accessToken = load('accessToken');
-const user = localStorage.getItem('profile');
+const user = JSON.parse(localStorage.getItem('profile'));
 const postContainer = document.querySelector('#profilePost');
 
 export async function getPosts() {
-    const response = await fetch(
-        `${API_PATH_URL}${action}/?_author=true`,
-        {
-            method: 'get',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${accessToken}`,
-            },
-            // body: JSON.stringify(),
+    const response = await fetch(`${API_PATH_URL}${action}/?_author=true`, {
+        method: 'get',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${accessToken}`,
         },
-    );
+        body: JSON.stringify(),
+    });
     const json = await response.json();
-   
 
-    const filterUserData = json.filter(author => author.name === user);
-    const userPosts = json;
+    postModel = json.filter(({ author }) => author.name === user.name);
 
-    filterUserData.forEach(userPost => {
+    postModel.forEach(userPost => {
         postContainer.innerHTML = `<div class=" container mt-4 mb-5 posts-card d-flex justify-content-center row col-md-8 feed p-2
     bg-white border mt-2">
     <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
@@ -59,16 +71,15 @@ export async function getPosts() {
     <div class="p-2 px-3">
     <p class="d-flex justify-content-end socials">${userPost.body}</p></div>
     <div><p>${userPost.created}</p></div>
-    <div><button type="submit" class="btn btn-primary waves-effect waves-light">Update Post</button></div>
+    <a href="update.html?id=${userPost.id}" <div><button type="submit" class="btn btn-primary waves-effect waves-light">Update Post</button></div></a>
     <div><button type="submit" class="btn btn-primary waves-effect waves-light">Delete Post</button></div>`;
     });
 
     if (!response.ok) {
         throw new Error('Error/ Please try again');
     }
-    console.log(userPosts);
-
-    // console.log(postContainer);
+    debugger;
+    console.log(postModel);
 }
 
 getPosts();

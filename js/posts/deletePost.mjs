@@ -1,6 +1,7 @@
 
 import { API_PATH_URL } from "../constants/url.mjs";
 import { fetchToken } from "../apiHandelings/fetchToken.mjs";
+import { getPosts } from "../handelers/create.mjs";
 
 const action ="/posts";
 const method = "delete"; 
@@ -23,6 +24,9 @@ export async function removePost(id) {
 
 };
 
+function remove () {
+    
+}
 
 
 
