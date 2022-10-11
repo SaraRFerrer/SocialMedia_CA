@@ -2,6 +2,8 @@ import { createPost } from '../posts/createPost.mjs';
 import { load } from '../constants/stored.mjs';
 import { fetchToken } from '../apiHandelings/fetchToken.mjs';
 import { API_PATH_URL } from '../constants/url.mjs';
+import { removePost } from "../posts/deletePost.mjs"
+
 
 let postModel = [
     {
@@ -72,14 +74,24 @@ export async function getPosts() {
     <p class="d-flex justify-content-end socials">${userPost.body}</p></div>
     <div><p>${userPost.created}</p></div>
     <a href="update.html?id=${userPost.id}" <div><button type="submit" class="btn btn-primary waves-effect waves-light">Update Post</button></div></a>
-    <div><button type="submit" class="btn btn-primary waves-effect waves-light">Delete Post</button></div>`;
+    `;
+
+    const button = document.createElement("div");
+    button.classList.add("btn", "btn-primary", "waves-effect", "waves-light");
+    const removebtn = document.createElement("button");
+    removebtn.setAttribute("id", "removebtn");
+    removebtn.innerHTML = "Delete";
+    button.append(removebtn);
+    
+    removebtn.addEventListener("click", () => removePost(id))
+
+    postContainer.append(button);
     });
 
     if (!response.ok) {
         throw new Error('Error/ Please try again');
     }
-    debugger;
-    console.log(postModel);
+    
 }
 
 getPosts();

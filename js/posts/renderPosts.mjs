@@ -9,6 +9,9 @@ const action ="/posts";
 
 export async function renderPosts() {
     const renderUrl = `${API_PATH_URL}${action}` + "?_author=true&_comments=true&limit=1000";
+
+   
+    
  
 
     try{
@@ -43,9 +46,32 @@ export async function renderPosts() {
     console.log(error)
     }
 
-    
+
 
 }
+
+ function searchFeed (posts) {
+        const searchInput = document.querySelector("#search");
+    
+        searchInput.onkeyup = function (event) {
+            const filterValue = event.target.value.trim().toLowerCase();
+    
+            const filteredFeed = posts.filter(function (post) {
+                if (post.title.toLowerCase().includes(filterValue) || post.body.toLowerCase().includes(filterValue)) {
+                    return true;
+                }
+            });
+    
+            createHTML(filteredFeed);
+    
+    
+        };
+    
+       
+    }
+
+    searchFeed();
+
 
 renderPosts()
 

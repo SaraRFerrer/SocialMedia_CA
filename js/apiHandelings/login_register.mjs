@@ -66,7 +66,7 @@ export async function registerUser (url, data) {
             stored.saved("accessToken", json.accessToken);
             stored.saved("profile", json);
             console.log(json);
-            window.location.assign("index.html");
+            window.location.assign("feed.html");
 
            
 
