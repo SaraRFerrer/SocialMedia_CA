@@ -1,5 +1,6 @@
 import {updatePost} from "../posts/updatePost.mjs";
-import { getPost } from "../posts/renderPosts.mjs";
+import { getPost } from "../posts/getpost.mjs";
+import { removePost } from "../posts/deletePost.mjs";
 
 export async function createListener () {
     const form = document.querySelector(".updateForm");
@@ -29,8 +30,10 @@ export async function createListener () {
             const post = Object.fromEntries(formData.entries())
             post.id = id;
 
-            updatePost(post)
+            updatePost(post), removePost();
         })
+
+        
     }
 }
 

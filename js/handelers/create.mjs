@@ -76,16 +76,6 @@ export async function getPosts() {
     <a href="update.html?id=${userPost.id}" <div><button type="submit" class="btn btn-primary waves-effect waves-light">Update Post</button></div></a>
     `;
 
-    const button = document.createElement("div");
-    button.classList.add("btn", "btn-primary", "waves-effect", "waves-light");
-    const removebtn = document.createElement("button");
-    removebtn.setAttribute("id", "removebtn");
-    removebtn.innerHTML = "Delete";
-    button.append(removebtn);
-    
-    removebtn.addEventListener("click", () => removePost(id))
-
-    postContainer.append(button);
     });
 
     if (!response.ok) {
