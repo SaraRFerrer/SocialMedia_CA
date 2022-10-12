@@ -7,7 +7,7 @@ const method = "put";
 
 
 export async function updatePost(postData) {
-    if (postData.id){
+    if (!postData.id){
         throw new Error ("Update required id");
     }
 

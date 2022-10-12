@@ -12,7 +12,7 @@ export async function renderPosts() {
 
     const response = await fetchToken(renderUrl)
     const json = await response.json();
-    console.log(json);
+    //console.log(json);
 
 
     /**
@@ -34,7 +34,7 @@ export async function renderPosts() {
                 }
             });
 
-            renderPosts(filteredFeed);
+           console.log(filteredFeed);
     
            
     
@@ -43,7 +43,7 @@ export async function renderPosts() {
 
        
     }
-    searchFeed();
+    searchFeed(json);
 
    
     

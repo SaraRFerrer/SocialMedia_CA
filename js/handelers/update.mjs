@@ -25,25 +25,19 @@ export async function createListener () {
        
 
 
-        update.addEventListener("submit", (event) => {
-            event.preventDefault()
-            const form = event.target;
+        update.addEventListener("click", (event) => {
+            event.preventDefault();
             const formData = new FormData(form);
             const post = Object.fromEntries(formData.entries())
             post.id = id;
 
             updatePost(post);
-        })
+        });
 
-        remove.addEventListener("submit", (event) => {
+        remove.addEventListener("click", (event) => {
             event.preventDefault()
-            const form = event.target;
-            const formData = new FormData(form);
-            const post = Object.fromEntries(formData.entries())
-            post.id = id;
-
-            removePost(post);
-        })
+            removePost(id);
+        });
 
 
         
@@ -52,6 +46,6 @@ export async function createListener () {
 
 const path = location.pathname;
 
-if (path === '/update.html'); {
+if (path === '/update.html') {
     createListener();
 }
