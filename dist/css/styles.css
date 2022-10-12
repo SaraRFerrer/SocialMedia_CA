@@ -10799,13 +10799,13 @@ a {
   text-decoration: none;
 }
 
-#posts-container {
+#wrapper {
   background-color: rgb(60, 59, 59);
   align-items: center;
   margin: auto;
 }
 
-#posts-container img {
+#wrapper img {
   width: 100%;
   max-height: 500px;
   max-width: 700px;
@@ -10814,7 +10814,7 @@ a {
   align-items: center;
 }
 
-#posts-container a {
+#wrapper a {
   text-align: center;
 }
 

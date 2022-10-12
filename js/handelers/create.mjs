@@ -49,7 +49,7 @@ const user = JSON.parse(localStorage.getItem('profile'));
 const postContainer = document.querySelector('#profilePost');
 
 export async function getPosts() {
-    const response = await fetch(`${API_PATH_URL}${action}/?_author=true`, {
+    const response = await fetch(`${API_PATH_URL}${action}/?_author=true&limit=500`, {
         method: 'get',
         headers: {
             'Content-Type': 'application/json',

@@ -2,7 +2,7 @@ import { fetchToken } from "../apiHandelings/fetchToken.mjs";
 import { API_PATH_URL } from "../constants/url.mjs";
 
 
-const posts = document.querySelector("#posts-container");
+const posts = document.querySelector("#wrapper");
 
 const action ="/posts";
 
@@ -34,7 +34,24 @@ export async function renderPosts() {
                 }
             });
 
+            posts.innerHTML = "";
+
            console.log(filteredFeed);
+           for (let i = 0; i < filteredFeed.length; i++) {
+            posts.innerHTML += `<a href="details.html?id=${filteredFeed[i].id}" <div class=" container mt-4 mb-5 posts-card d-flex justify-content-center row col-md-8 feed p-2
+            bg-white border mt-2">
+            <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+            <p class="d-flex justify-content-end socials">${filteredFeed[i].author}</p></div>
+            <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+            <h1 class="d-flex flex-row align-items-center feed-text px-2">${filteredFeed[i].title}</h1></div>
+            <div class="feed-image p-2 px-3">
+            <img class="img-fluid img-responsive d-flex justify-content-end socials" src ="${filteredFeed[i].media}"></img></div>
+            <div class="p-2 px-3">
+            <p class="d-flex justify-content-end socials">${filteredFeed[i].body}</p></div>
+            <div><p>${filteredFeed[i].created}</p></div>
+            <div><button>View Post</button></a>`
+        
+         } 
     
            
     
@@ -47,7 +64,7 @@ export async function renderPosts() {
 
    
     
- 
+ console.log("sara");
 
     try{
         
