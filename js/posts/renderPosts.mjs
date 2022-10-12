@@ -8,7 +8,42 @@ const action ="/posts";
 
 
 export async function renderPosts() {
-    const renderUrl = `${API_PATH_URL}${action}` + "?_author=true&_comments=true&limit=1000";
+    const renderUrl = `${API_PATH_URL}${action}` + "?_author=true&_comments=true&limit=100";
+
+    const response = await fetchToken(renderUrl)
+    const json = await response.json();
+    console.log(json);
+
+
+    /**
+     * User can search the array filtering the posts.
+     * @param {string} posts 
+     */
+
+    function searchFeed (json) {
+        const searchInput = document.querySelector("#search");
+    
+        searchInput.onkeyup = function (event) {
+            
+            const filterValue = event.target.value.trim().toLowerCase();
+
+           
+            const filteredFeed = json.filter(function (post) {
+                if (post.title.toLowerCase().includes(filterValue) || post.body.toLowerCase().includes(filterValue)) {
+                    return true;
+                }
+            });
+
+            renderPosts(filteredFeed);
+    
+           
+    
+    
+        };
+
+       
+    }
+    searchFeed();
 
    
     
@@ -16,13 +51,6 @@ export async function renderPosts() {
 
     try{
         
-    
-        const response = await fetchToken(renderUrl)
-        const json = await response.json();
-       
-
-        console.log(json);
-
 
         for (let i = 0; i < json.length; i++) {
             posts.innerHTML += `<a href="details.html?id=${json[i].id}" <div class=" container mt-4 mb-5 posts-card d-flex justify-content-center row col-md-8 feed p-2
@@ -50,40 +78,11 @@ export async function renderPosts() {
 
 }
 
- function searchFeed (posts) {
-        const searchInput = document.querySelector("#search");
-    
-        searchInput.onkeyup = function (event) {
-            const filterValue = event.target.value.trim().toLowerCase();
-    
-            const filteredFeed = posts.filter(function (post) {
-                if (post.title.toLowerCase().includes(filterValue) || post.body.toLowerCase().includes(filterValue)) {
-                    return true;
-                }
-            });
-    
-            createHTML(filteredFeed);
-    
-    
-        };
-    
-       
-    }
-
-    searchFeed();
 
 
-renderPosts()
+   
 
-export async function getPost(id) {
-    if(!id) {
-        throw new Error("Request requires ID");
-    }
 
-    const getPostApi = `${API_PATH_URL}${action}/${id}`;
+renderPosts();
 
-    const response = await fetchToken(getPostApi)
-
-    return await response.json();
-}
 

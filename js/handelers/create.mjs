@@ -2,7 +2,7 @@ import { createPost } from '../posts/createPost.mjs';
 import { load } from '../constants/stored.mjs';
 import { fetchToken } from '../apiHandelings/fetchToken.mjs';
 import { API_PATH_URL } from '../constants/url.mjs';
-import { removePost } from "../posts/deletePost.mjs"
+
 
 
 let postModel = [

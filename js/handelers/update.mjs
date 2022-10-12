@@ -4,6 +4,8 @@ import { removePost } from "../posts/deletePost.mjs";
 
 export async function createListener () {
     const form = document.querySelector(".updateForm");
+    const update = document.querySelector("#update")
+    const remove = document.querySelector("#delete")
 
     const url = new URL(location.href);
     const id = url.searchParams.get("id");
@@ -18,20 +20,31 @@ export async function createListener () {
         form.title.value = post.title;
         form.body.value = post.body;
         form.tags.value = post.tags;
-        form.media.value = post.media;
+        //form.media.value = post.media;
 
        
 
 
-        form.addEventListener("submit", (event) => {
+        update.addEventListener("submit", (event) => {
             event.preventDefault()
             const form = event.target;
             const formData = new FormData(form);
             const post = Object.fromEntries(formData.entries())
             post.id = id;
 
-            updatePost(post), removePost();
+            updatePost(post);
         })
+
+        remove.addEventListener("submit", (event) => {
+            event.preventDefault()
+            const form = event.target;
+            const formData = new FormData(form);
+            const post = Object.fromEntries(formData.entries())
+            post.id = id;
+
+            removePost(post);
+        })
+
 
         
     }
@@ -39,6 +52,6 @@ export async function createListener () {
 
 const path = location.pathname;
 
-if (path === '/update.html') {
+if (path === '/update.html'); {
     createListener();
 }
