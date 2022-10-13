@@ -7,8 +7,10 @@ const posts = document.querySelector("#wrapper");
 const action ="/posts";
 
 
+
+
 export async function renderPosts() {
-    const renderUrl = `${API_PATH_URL}${action}` + "?_author=true&_comments=true&limit=500";
+    const renderUrl = `${API_PATH_URL}${action}` + "?_author=true&_comments=true&limit=100";
 
     const response = await fetchToken(renderUrl)
     const json = await response.json();
@@ -64,12 +66,15 @@ export async function renderPosts() {
 
    
     
- console.log("sara");
+ 
 
     try{
-        
+
+               
 
         for (let i = 0; i < json.length; i++) {
+            const date = new Date (json[i].created);
+            const created = date.toDateString(); 
             posts.innerHTML += `<a href="details.html?id=${json[i].id}" <div class=" container mt-4 mb-5 posts-card d-flex justify-content-center row col-md-8 feed p-2
             bg-white border mt-2">
             <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
@@ -80,7 +85,7 @@ export async function renderPosts() {
             <img class="img-fluid img-responsive d-flex justify-content-end socials" src ="${json[i].media}"></img></div>
             <div class="p-2 px-3">
             <p class="d-flex justify-content-end socials">${json[i].body}</p></div>
-            <div><p>${json[i].created}</p></div>
+            <div><p>${created}</p></div>
             <button class="btn btn-primary waves-effect waves-light" >View Post</button></a>`
         
          }
