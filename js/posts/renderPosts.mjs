@@ -49,7 +49,7 @@ export async function renderPosts() {
             <div class="p-2 px-3">
             <p class="d-flex justify-content-end socials">${filteredFeed[i].body}</p></div>
             <div><p>${filteredFeed[i].created}</p></div>
-            <div><button>View Post</button></a>`
+            <button class="btn btn-primary waves-effect waves-light">View Post</button></a>`
         
          } 
     
@@ -81,7 +81,7 @@ export async function renderPosts() {
             <div class="p-2 px-3">
             <p class="d-flex justify-content-end socials">${json[i].body}</p></div>
             <div><p>${json[i].created}</p></div>
-            <div><button>View Post</button></a>`
+            <button class="btn btn-primary waves-effect waves-light" >View Post</button></a>`
         
          }
 
