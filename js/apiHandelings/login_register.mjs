@@ -34,7 +34,7 @@ export async function registerUser (url, data) {
         console.log(response);
         const json = await response.json();
         console.log(json);
-        window.location.assign("login.html");
+        window.location.assign("index.html");
         return json;
       } catch (error) {
         console.log(error);
