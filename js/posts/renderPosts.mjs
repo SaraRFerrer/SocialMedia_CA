@@ -8,7 +8,7 @@ const action ="/posts";
 
 
 export async function renderPosts() {
-    const renderUrl = `${API_PATH_URL}${action}` + "?_author=true&_comments=true&limit=100";
+    const renderUrl = `${API_PATH_URL}${action}` + "?_author=true&_comments=true&limit=1000";
 
     const response = await fetchToken(renderUrl)
     const json = await response.json();
