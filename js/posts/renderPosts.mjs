@@ -1,5 +1,7 @@
 import { fetchToken } from "../apiHandelings/fetchToken.mjs";
 import { API_PATH_URL } from "../constants/url.mjs";
+import { filterNewest, filterOldest } from "./filter.mjs";
+
 
 
 const posts = document.querySelector("#wrapper");
@@ -106,6 +108,8 @@ export async function renderPosts() {
 
 renderPosts();
 
+oldest.addEventListener("click", filterNewest);
+newest.addEventListener("click", filterOldest);
  
 
 

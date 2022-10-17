@@ -39,12 +39,14 @@
   <div id="wrapper" class="container mt-4 mb-5 d-flex justify-content-center row col-md-8 feed p-2
   border mt-2">
   <h1>Posts Feed</h1>   
-  <div>
-    <label for="filter">Posted today</label>
-    <select name="filter" id="filter">
-      <option value="a-z">All posts</option>
-      <option value="a-z" id="filter">Today</option>
-    </select>
+  
+  <div class="filternewest">
+    <button id="newest">Newest</button>
+  </div>
+  <div class="filteroldest">
+    <button id="oldest">Oldest</button>
+  </div>
+
   </div>
   <div class="container mt-4 mb-5" id="posts-container">
        
