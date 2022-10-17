@@ -4,7 +4,10 @@ import { API_PATH_URL } from "../constants/url.mjs";
 
 const posts = document.querySelector("#wrapper");
 
+
 const action ="/posts";
+const today = new Date().toISOString().split("T")[0];
+const filterContainer = document.querySelector("#filter");
 
 
 
@@ -15,6 +18,8 @@ export async function renderPosts() {
     const response = await fetchToken(renderUrl)
     const json = await response.json();
     //console.log(json);
+
+   
 
 
     /**
@@ -70,8 +75,7 @@ export async function renderPosts() {
 
     try{
 
-               
-
+        
         for (let i = 0; i < json.length; i++) {
             const date = new Date (json[i].created);
             const created = date.toDateString(); 
@@ -100,11 +104,8 @@ export async function renderPosts() {
 
 }
 
-
-
-   
-
-
 renderPosts();
+
+ 
 
 

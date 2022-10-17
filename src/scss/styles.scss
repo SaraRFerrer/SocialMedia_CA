@@ -3,6 +3,10 @@
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 
+html, body {
+    height: 100%;
+}
+
 main {
     background-color: $primary;
 }
@@ -81,4 +85,8 @@ h1 {
     font-size: 4rem;
 }
 
+
+#profilepost {
+   height: 100%;
+}
 

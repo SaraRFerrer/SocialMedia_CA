@@ -35,16 +35,26 @@
     </header> 
    
 <section>
+  
   <div id="wrapper" class="container mt-4 mb-5 d-flex justify-content-center row col-md-8 feed p-2
   border mt-2">
-  <h1>Posts Feed</h1>
-    <div class="container mt-4 mb-5" id="posts-container">
+  <h1>Posts Feed</h1>   
+  <div>
+    <label for="filter">Posted today</label>
+    <select name="filter" id="filter">
+      <option value="a-z">All posts</option>
+      <option value="a-z" id="filter">Today</option>
+    </select>
+  </div>
+  <div class="container mt-4 mb-5" id="posts-container">
        
     </div>
 </section>
 </main>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="/js/posts/renderPosts.mjs"></script>
+    <script type="module" src="/js/posts/filter.mjs"></script>
+    
    
 </body>
 </html>

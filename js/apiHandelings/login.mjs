@@ -2,6 +2,11 @@
 import { validateSignup } from "./validationSignup.mjs";
 import * as stored from "../constants/stored.mjs";
 
+const BASE_URL_API = "https://nf-api.onrender.com";
+
+const email = document.querySelector("#emailAddress");
+const password = document.querySelector("#password");
+
 const loginForm = document.querySelector(".login-form");
 
     // calling API to get token authorisation and saving them in local storage
