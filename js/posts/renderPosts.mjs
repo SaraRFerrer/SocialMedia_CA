@@ -80,6 +80,9 @@ export async function renderPosts() {
  
   // Create a new array which we will sort
   let postsList = [...json];
+
+  console.log(json);
+  
   // Checking if we need to sort asc/desc
   if (dateSortOrder === 'ascending') {
     postsList = postsList.sort(function (a, b) {
