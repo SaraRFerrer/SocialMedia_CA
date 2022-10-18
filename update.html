@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="The profile page for a Social Media plattform for cats" />
-    <title>Profile</title>
+    <title>Update Post</title>
     <link rel="stylesheet" href="/dist/css/styles.css">
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="feed.html">Home</a>
+            <a class="navbar-brand" href="index.html">Home</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -22,7 +22,7 @@
                   <a class="nav-link" href="profile.html">Profile</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="index.html">Log in</a>
+                  <a class="nav-link" href="login.html">Log in</a>
                 </li>
               </ul>
               <form class="form-inline my-2 my-md-0">
@@ -179,7 +179,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <form class="createForm">
+                                    <form class="updateForm">
                                         <div class="text-right m-t-20">
                                             <label for="">Title</label>
                                             <input class="form-control" type="text" name="title"  placeholder="Title..." required>
@@ -196,27 +196,12 @@
                                             <label for="">Media</label>
                                             <input class="form-control" type="url" name="Media" placeholder="Media..." >
                                         </div>
-                                        <button class="btn btn-primary waves-effect waves-light">Post</button>
-                                    </form>
-                                    <section class=" text-right m-t-20">
-                                        <h1>Your Posts</h1>
-                                        <div id="profilePost" class="container mt-4 mb-5 d-flex justify-content-center row col-md-8 feed p-2
-                                        mt-2"></div> 
-                                    </section>
-                                    <div class="test">
-
-                                    </div>
-                                       
-        
-                                   
-        
-                                      
-        
-        
-                    
-     </main>                                   
+                                        <button class="btn btn-primary waves-effect waves-light" id="update">Update</button>
+                                        <button class="btn btn-primary waves-effect waves-light" id="delete">Delete</button>
+                                    </form>               
+   </main>  
     <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="/js/handelers/create.mjs"></script>
-    <script type="module" src="/js/posts/createPost.mjs"></script>
+    <script type="module" src="/js/posts/updatePost.mjs"></script>
+    <script type="module" src="/js/handelers/update.mjs"></script>
 </body>
 </html>

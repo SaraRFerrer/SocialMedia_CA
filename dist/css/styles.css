@@ -10758,6 +10758,10 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
+html, body {
+  height: 100%;
+}
+
 main {
   background-color: rgb(183, 179, 179);
 }
@@ -10788,6 +10792,53 @@ main {
 
 .form-control {
   border: rgb(248, 247, 247);
+}
+
+.error {
+  display: none;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+#wrapper {
+  background-color: rgb(60, 59, 59);
+  align-items: center;
+  margin: auto;
+}
+
+#wrapper img {
+  width: 100%;
+  max-height: 500px;
+  max-width: 700px;
+  margin: auto;
+  display: block;
+  align-items: center;
+}
+
+#wrapper button {
+  width: 150px;
+}
+
+select {
+  padding: 10px;
+  margin-top: 20px;
+}
+
+h1, .h1 {
+  color: rgb(248, 247, 247);
+  text-align: center;
+  font-size: 4rem;
+}
+
+#profilepost {
+  height: 100%;
+}
+
+.sort {
+  color: rgb(248, 247, 247);
 }
 
 /*# sourceMappingURL=styles.css.map */
